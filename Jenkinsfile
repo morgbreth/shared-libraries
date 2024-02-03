@@ -1,22 +1,12 @@
+@Library('github.com/morgbreth/shared-libraries') _
+
 pipeline {
-    agent {
-        label 'docker-agent'
-    }
+    agent any
+
     stages {
-        stage('Build') {
+        stage('Example') {
             steps {
-                script {
-                    // Your build steps here
-                    sh 'docker build -t myapp .'
-                }
-            }
-        }
-        stage('Test') {
-            steps {
-                script {
-                    // Your test steps here
-                    sh 'docker run myapp test'
-                }
+                myPipelineStep()
             }
         }
     }
